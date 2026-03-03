@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/src/components/layout/Navbar";
 import Topbar from "@/src/components/layout/Topbar";
+import Footer from "@/src/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Econexa | Capacitación para Minería",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Topbar />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

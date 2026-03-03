@@ -1,18 +1,34 @@
 @import "tailwindcss";
-:root {
-  --bg: 255 255 255;
-  --fg: 15 23 42;
+:root {/* NUEVA PALETA - BLUE + TEAL */
 
-  /* Brand temporal (luego lo cambiamos fácil) */
-  --brand: 6 182 212;      /* cyan */
-  --brand-2: 99 102 241;   /* indigo */
+/* Brand Colors */
+--brand: 8, 145, 178  ;       /* cyan-600 */
+--brand-2: 37, 99, 235 ;      /* blue-600 */
 
-  --card: 255 255 255;
-  --muted: 241 245 249;
-  --border: 226 232 240;
+/* Backgrounds */
+--bg-primary: 255, 255, 255;      /* white */
+--bg-secondary: 248, 250, 252;    /* slate-50 */
+--bg-brand-light: 236, 254, 255;  /* cyan-50 */
 
-  --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+/* Text */
+--text-primary: 15, 23, 42 ;      /* slate-900 */
+--text-secondary: 71, 85, 105;    /* slate-600 */
+--text-tertiary: 100, 116, 139;   /* slate-500 */
+
+/* Borders */
+--border: 226, 232, 240;          /* slate-200 */
+
+
 }
+
+/* Utility Classes para usar en todo el proyecto */
+.bg-brand { background-color: rgb(8, 145, 178); }
+.bg-brand-light { background-color: rgb(236, 254, 255); }
+.text-brand { color: rgb(8, 145, 178); }
+.border-brand { border-color: rgb(8, 145, 178); }
+.shadow-brand { --tw-shadow-color: rgb(8, 145, 178); }
+.from-brand { --tw-gradient-from: rgb(8, 145, 178); }
+.to-brand { --tw-gradient-to: rgb(37, 99, 235); }
 
 body {
   background: rgb(var(--bg));
