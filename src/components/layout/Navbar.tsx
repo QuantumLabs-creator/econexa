@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Container from "@/src/components/ui/Container";
-import Button from "@/src/components/ui/Button";
+import Button from "@/src/components/ui/ButtonCustom";
 import { cn } from "@/src/lib/utils";
 
 const nav = [
