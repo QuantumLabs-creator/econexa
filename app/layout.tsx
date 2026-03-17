@@ -3,6 +3,10 @@ import "./globals.css";
 import Navbar from "@/src/components/layout/Navbar";
 import Topbar from "@/src/components/layout/Topbar";
 import Footer from "@/src/components/layout/Footer";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Econexa | Capacitación para Minería",
@@ -11,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
+    <html lang="es" className={cn("font-sans", geist.variable)}>
       <body>
         <Topbar />
         <Navbar />

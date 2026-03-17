@@ -1,219 +1,159 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import Container from "@/src/components/ui/Container";
-import Button from "@/src/components/ui/Button";
-import { ArrowRight, Play, Star, Zap, Globe, Users } from "lucide-react";
-import { useRef } from "react";
+import { Button } from "@/components/ui/button"
+import { ArrowRight, Play, Users, BookOpen, Award, Star, Globe } from "lucide-react"
+import Image from "next/image"
 
-const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
-
-export default function HeroBlue() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-
+export function HeroSection() {
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
-      {/* Background Elements - Blue Version */}
+    <section id="inicio" className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background decorative elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-gradient-to-bl from-cyan-50 to-transparent rounded-full blur-[140px] opacity-60" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-blue-50 to-transparent rounded-full blur-[140px] opacity-50" />
-        
-        {/* Animated Grid Lines */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:64px_64px]" />
-          <motion.div 
-            className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px)] bg-[size:64px_64px]"
-            animate={{ x: [0, 64] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl" />
       </div>
-
-      <Container className="relative z-10 ">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-          
-          {/* LEFT: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease }}
-            className="max-w-2xl"
-          >
-            {/* Badge - Blue Version */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 shadow-sm mb-8"
-            >
-              <Zap className="h-4 w-4 text-cyan-600" />
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-600 animate-pulse" />
-              <span className="bg-cyan-50 px-2 py-0.5 rounded text-xs font-bold text-cyan-700 uppercase tracking-wide">
-                2024
+      
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+              <svg viewBox="0 0 24 24" className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+              </svg>
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-sm font-medium text-primary">
+                2026 Plataforma Lider en Capacitacion Minera Sostenible
               </span>
-              Plataforma Líder en Capacitación Minera
-            </motion.div>
-
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1]">
-              Expertos en <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-500">
-                formación minera
-              </span>
-            </h1>
-
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
-              Capacitación técnica especializada para el sector minero. 
-              Cursos certificados, instructores en campo y metodología 100% aplicada.
-            </p>
-
-            {/* Stats Rápidas */}
-            <div className="mt-8 flex flex-wrap gap-8">
-              {[
-                { num: "500+", label: "Alumnos" },
-                { num: "50+", label: "Cursos" },
-                { num: "18+", label: "Expertos" },
-              ].map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
-                  className="text-left"
-                >
-                  <p className="text-3xl font-bold text-slate-900">{stat.num}</p>
-                  <p className="text-sm text-slate-500">{stat.label}</p>
-                </motion.div>
-              ))}
             </div>
 
-            {/* Botones - Blue Version */}
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Button 
-                href="/cursos" 
-                className="h-14 px-8 text-base font-semibold bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white shadow-lg shadow-cyan-500/30"
-              >
-                Explorar Programas
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-
-              <a
-                href="#demo"
-                className="group inline-flex h-14 items-center justify-center rounded-xl border border-slate-200 bg-white px-6 text-base font-medium text-slate-700 transition-all hover:bg-slate-50 hover:border-slate-300 hover:shadow-md"
-              >
-                <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-cyan-50 group-hover:bg-cyan-100 transition-colors">
-                  <Play className="h-5 w-5 text-cyan-600" />
-                </div>
-                Ver cómo funciona
-              </a>
+            <div className="space-y-4">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground text-balance">
+                Expertos en{" "}
+                <span className="text-primary">formacion minera</span>
+              </h1>
+              <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+                Capacitacion tecnica especializada para el sector minero. Cursos certificados, instructores en campo y metodologia 100% aplicada con enfoque en sostenibilidad.
+              </p>
             </div>
 
-            {/* Trust Badges - Blue Version */}
-            <div className="mt-12 flex items-center gap-6">
-              <div className="text-sm">
-                <div className="flex items-center gap-1">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="h-4 w-4 fill-cyan-600 text-cyan-600" />
-                  ))}
+            <div className="flex items-center gap-8">
+              <div className="flex items-center gap-3">
+                <Users className="w-5 h-5 text-muted-foreground" />
+                <div>
+                  <span className="text-2xl font-bold text-foreground">800+</span>
+                  <p className="text-sm text-muted-foreground">Alumnos</p>
                 </div>
-                <p className="text-slate-500">+500 profesionales certificados</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <BookOpen className="w-5 h-5 text-muted-foreground" />
+                <div>
+                  <span className="text-2xl font-bold text-foreground">65+</span>
+                  <p className="text-sm text-muted-foreground">Cursos</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <Award className="w-5 h-5 text-muted-foreground" />
+                <div>
+                  <span className="text-2xl font-bold text-foreground">30+</span>
+                  <p className="text-sm text-muted-foreground">Expertos</p>
+                </div>
               </div>
             </div>
-          </motion.div>
 
-          {/* RIGHT: Visual Composition - Blue Version */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease, delay: 0.3 }}
-            className="relative"
-          >
-            {/* Main Card */}
-            <div className="relative mx-auto w-full max-w-lg">
-              {/* Glow Effect - Blue Version */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/20 via-blue-500/15 to-cyan-400/15 rounded-3xl blur-2xl opacity-60" />
-              
-              {/* Card Principal - Blue Version */}
-              <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl">
-                {/* Header Bar - Blue Version */}
-                <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-6 py-4">
-                  <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full bg-red-400" />
-                    <div className="h-3 w-3 rounded-full bg-amber-400" />
-                    <div className="h-3 w-3 rounded-full bg-emerald-400" />
+            <div className="flex flex-wrap gap-4">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 gap-2">
+                Explorar Cursos
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+              <Button variant="outline" size="lg" className="rounded-full px-8 gap-2 border-border">
+                <Play className="w-4 h-4 text-primary" />
+                Ver Demo Interactiva
+              </Button>
+            </div>
+
+            <div className="flex items-center gap-3 pt-4">
+              <div className="flex items-center gap-1 text-primary">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
+              <span className="text-sm text-muted-foreground">
+                +800 profesionales certificados en sostenibilidad minera
+              </span>
+            </div>
+          </div>
+
+          <div className="relative lg:pl-8">
+            <div className="relative">
+              {/* Main platform card */}
+              <div className="bg-card rounded-2xl shadow-2xl border border-border overflow-hidden">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/30">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-400" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                    <div className="w-3 h-3 rounded-full bg-green-400" />
                   </div>
-                  <div className="text-xs text-slate-500 font-mono">econexa.platform</div>
+                  <span className="text-xs text-muted-foreground ml-auto">econexa.platform</span>
                 </div>
 
-                {/* Content Preview - Blue Version */}
-                <div className="p-6">
-                  <div className="aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+                <div className="p-6 space-y-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-muted rounded-full">
+                    <Users className="w-4 h-4 text-muted-foreground" />
+                    <span className="text-sm text-foreground">Clases Grupales</span>
+                  </div>
+
+                  {/* Video thumbnail with real image */}
+                  <div className="relative aspect-video rounded-xl overflow-hidden">
                     <Image
-                      src="/platform-preview-light.jpg"
-                      alt="Plataforma Econexa"
-                      width={800}
-                      height={450}
-                      className="w-full h-full object-cover"
+                      src="/images/mining-modern.jpg"
+                      alt="Operacion minera moderna"
+                      fill
+                      className="object-cover"
                     />
-                    {/* Play Button Overlay - Blue Version */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="h-16 w-16 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/40 hover:scale-110 transition-transform">
-                        <Play className="h-6 w-6 fill-white text-white ml-1" />
+                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform shadow-lg">
+                        <Play className="w-6 h-6 text-primary-foreground fill-current ml-1" />
                       </div>
                     </div>
                   </div>
 
-                  {/* Course Info - Blue Version */}
-                  <div className="mt-4 flex items-center justify-between">
+                  <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-semibold text-slate-900">Gestión de SSOMA en Minería</p>
-                      <p className="text-xs text-slate-500">Curso Certificado • 40 horas</p>
+                      <h3 className="font-semibold text-foreground">Gestion SSOMA y Sostenibilidad</h3>
+                      <p className="text-sm text-muted-foreground">Curso Certificado - 40 horas - Enfoque ESG</p>
                     </div>
-                    <div className="flex items-center gap-2 rounded-lg bg-cyan-50 px-3 py-1.5">
-                      <Globe className="h-4 w-4 text-cyan-600" />
-                      <span className="text-xs font-medium text-cyan-700">En Vivo</span>
+                    <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                      <Globe className="w-4 h-4" />
+                      En Vivo
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Elements - Blue Version */}
-              <FloatBadge 
-                className="absolute -left-4 top-16" 
-                icon={Users} 
-                text="Clases Grupales" 
-                delay={0.5} 
-              />
-              <FloatBadge 
-                className="absolute -right-2 bottom-28" 
-                icon={Star} 
-                text="4.9/5 Calificación" 
-                delay={0.7} 
-              />
+              {/* Floating rating card */}
+              <div className="absolute -top-4 -right-4 bg-card rounded-xl shadow-lg border border-border px-4 py-3 flex items-center gap-2">
+                <Star className="w-4 h-4 text-primary fill-current" />
+                <span className="text-sm font-medium text-foreground">4.9/5 Calificacion</span>
+              </div>
+
+              {/* Floating students card */}
+              <div className="absolute -bottom-4 -left-4 bg-card rounded-xl shadow-lg border border-border px-4 py-3">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 rounded-full bg-primary/20 border-2 border-card flex items-center justify-center text-xs font-medium text-primary">JM</div>
+                    <div className="w-8 h-8 rounded-full bg-blue-500/20 border-2 border-card flex items-center justify-center text-xs font-medium text-blue-600">AL</div>
+                    <div className="w-8 h-8 rounded-full bg-green-500/20 border-2 border-card flex items-center justify-center text-xs font-medium text-green-600">RC</div>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">+245 inscritos</p>
+                    <p className="text-xs text-muted-foreground">este mes</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </Container>
-
-     
-    </section>
-  );
-}
-
-function FloatBadge({ className, icon: Icon, text, delay }: any) {
-  return (
-    <motion.div
-      className={`flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-2.5 backdrop-blur-md shadow-lg ${className}`}
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5, delay }}
-    >
-      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-50">
-        <Icon className="h-4 w-4 text-cyan-600" />
       </div>
-      <span className="text-sm font-medium text-slate-700">{text}</span>
-    </motion.div>
-  );
+    </section>
+  )
 }

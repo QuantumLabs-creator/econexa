@@ -21,7 +21,7 @@ const certifications = [
     icon: Shield,
     title: "ISO 9001:2015",
     desc: "Sistema de gestión de calidad certificado",
-    color: "cyan"
+    color: "green" // Cambiado de "cyan" a "green"
   },
   {
     icon: BadgeCheck,
@@ -33,7 +33,7 @@ const certifications = [
     icon: Award,
     title: "OSINERGMIN",
     desc: "Certificación en seguridad energética",
-    color: "cyan"
+    color: "green" // Cambiado de "cyan" a "green"
   },
   {
     icon: Clock,
@@ -53,9 +53,9 @@ const impact = [
 export default function TrustCertifications() {
   return (
     <section className="relative overflow-hidden bg-white pt-16">
-      {/* Background */}
+      {/* Background - Color actualizado: cyan → green */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-cyan-50 to-transparent rounded-full blur-[120px] opacity-50" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-green-50 to-transparent rounded-full blur-[120px] opacity-50" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:48px_48px]" />
       </div>
 
@@ -68,11 +68,9 @@ export default function TrustCertifications() {
           transition={{ duration: 0.5, ease }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          
-          
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             Respaldo que 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
               {" genera confianza"}
             </span>
           </h2>
@@ -94,7 +92,7 @@ export default function TrustCertifications() {
                 transition={{ duration: 0.5, delay: i * 0.1, ease }}
                 viewport={{ once: true }}
                 whileHover={{ y: -4 }}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-cyan-600/40 hover:shadow-lg"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-green-600/40 hover:shadow-lg"
               >
                 <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-${cert.color}-50 mb-4 group-hover:scale-110 transition-transform`}>
                   <Icon className={`h-7 w-7 text-${cert.color}-600`} />

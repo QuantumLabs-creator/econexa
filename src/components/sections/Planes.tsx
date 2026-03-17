@@ -68,9 +68,9 @@ const plans = [
 export default function PricingSection() {
   return (
     <section className="relative overflow-hidden bg-white pt-16 ">
-      {/* Background */}
+      {/* Background - Color actualizado: cyan → green */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-cyan-50 to-transparent rounded-full blur-[120px] opacity-50" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-green-50 to-transparent rounded-full blur-[120px] opacity-50" />
       </div>
 
       <Container>
@@ -82,11 +82,9 @@ export default function PricingSection() {
           transition={{ duration: 0.5, ease }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          
-          
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             Invierte en tu 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
               {" futuro profesional"}
             </span>
           </h2>
@@ -108,13 +106,13 @@ export default function PricingSection() {
               viewport={{ once: true }}
               className={`relative rounded-2xl border p-8 ${
                 plan.popular
-                  ? "border-cyan-600 bg-gradient-to-b from-cyan-50 to-white shadow-xl scale-105"
+                  ? "border-green-600 bg-gradient-to-b from-green-50 to-white shadow-xl scale-105"
                   : "border-slate-200 bg-white shadow-sm"
               }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-lg">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-green-600 to-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-lg">
                     <Zap className="h-3 w-3" />
                     Más Popular
                   </span>
@@ -133,7 +131,7 @@ export default function PricingSection() {
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3 text-sm text-slate-700">
-                    <Check className="h-5 w-5 text-cyan-600 shrink-0 mt-0.5" />
+                    <Check className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
                     {feature}
                   </li>
                 ))}
@@ -143,8 +141,8 @@ export default function PricingSection() {
                 href="/contacto"
                 className={`block w-full rounded-xl px-6 py-3.5 text-center text-sm font-semibold transition-all ${
                   plan.popular
-                    ? "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/30 hover:from-cyan-700 hover:to-blue-700 hover:shadow-xl"
-                    : "border border-slate-200 text-slate-700 hover:border-cyan-600/40 hover:bg-cyan-50"
+                    ? "bg-gradient-to-r from-green-600 to-blue-600 text-white shadow-lg shadow-green-500/30 hover:from-green-700 hover:to-blue-700 hover:shadow-xl"
+                    : "border border-slate-200 text-slate-700 hover:border-green-600/40 hover:bg-green-50"
                 }`}
               >
                 {plan.cta}
@@ -153,7 +151,7 @@ export default function PricingSection() {
           ))}
         </div>
 
-        {/* Guarantee */}
+        {/* Guarantee - Color actualizado */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -162,7 +160,7 @@ export default function PricingSection() {
           className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center"
         >
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Briefcase className="h-5 w-5 text-cyan-600" />
+            <Briefcase className="h-5 w-5 text-green-600" />
             <span className="font-semibold text-slate-900">Garantía de Satisfacción</span>
           </div>
           <p className="text-sm text-slate-600">

@@ -76,7 +76,7 @@ export default function MethodologyAutoPlay() {
 
     const interval = setInterval(() => {
       setActiveItem((current) => (current + 1) % methodologyItems.length);
-    }, 4000); // Cambia cada 4 segundos
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [isPaused]);
@@ -85,7 +85,6 @@ export default function MethodologyAutoPlay() {
   const handleManualChange = useCallback((index: number) => {
     setActiveItem(index);
     setIsPaused(true);
-    // Resume after 2 seconds of inactivity
     setTimeout(() => setIsPaused(false), 2000);
   }, []);
 
@@ -95,9 +94,9 @@ export default function MethodologyAutoPlay() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Subtle Background */}
+      {/* Subtle Background - Colores actualizados: cyan → green */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-cyan-50/40 to-transparent rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-green-50/40 to-transparent rounded-full blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-gradient-to-tr from-blue-50/40 to-transparent rounded-full blur-[100px]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
@@ -111,14 +110,12 @@ export default function MethodologyAutoPlay() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-           
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
             Formación que 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
                {" transforma carreras"}
             </span>
           </h2>
-
         </motion.div>
 
         {/* Main Content */}
@@ -141,27 +138,27 @@ export default function MethodologyAutoPlay() {
                     viewport={{ once: true }}
                     className={`w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 group ${
                       isActive
-                        ? "border-cyan-600 bg-white shadow-lg shadow-cyan-500/10"
+                        ? "border-green-600 bg-white shadow-lg shadow-green-500/10"
                         : "border-transparent bg-white/60 hover:bg-white hover:border-slate-200"
                     }`}
                   >
                     <div className="flex items-center gap-4">
                       <div className={`flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 ${
                         isActive
-                          ? "bg-gradient-to-br from-cyan-600 to-blue-600 text-white shadow-md"
-                          : "bg-slate-100 text-slate-600 group-hover:bg-cyan-50 group-hover:text-cyan-600"
+                          ? "bg-gradient-to-br from-green-600 to-blue-600 text-white shadow-md"
+                          : "bg-slate-100 text-slate-600 group-hover:bg-green-50 group-hover:text-green-600"
                       }`}>
                         <Icon className="h-6 w-6" />
                       </div>
                       
                       <div className="flex-1">
                         <h3 className={`font-bold text-lg transition-colors ${
-                          isActive ? "text-cyan-900" : "text-slate-900"
+                          isActive ? "text-green-900" : "text-slate-900"
                         }`}>
                           {item.title}
                         </h3>
                         <p className={`text-sm mt-0.5 transition-colors ${
-                          isActive ? "text-cyan-700" : "text-slate-500"
+                          isActive ? "text-green-700" : "text-slate-500"
                         }`}>
                           {item.desc.split('.')[0]}
                         </p>
@@ -169,7 +166,7 @@ export default function MethodologyAutoPlay() {
 
                       <ArrowRight className={`h-5 w-5 transition-all duration-300 ${
                         isActive 
-                          ? "text-cyan-600 rotate-0 opacity-100" 
+                          ? "text-green-600 rotate-0 opacity-100" 
                           : "text-slate-300 -rotate-90 opacity-0 group-hover:rotate-0 group-hover:opacity-100"
                       }`} />
                     </div>
@@ -187,8 +184,8 @@ export default function MethodologyAutoPlay() {
               className="lg:col-span-8 lg:sticky lg:top-24"
             >
               <div className="relative">
-                {/* Glow */}
-                <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/10 to-blue-500/10 rounded-3xl blur-2xl" />
+                {/* Glow - Colores actualizados */}
+                <div className="absolute -inset-4 bg-gradient-to-tr from-green-500/10 to-blue-500/10 rounded-3xl blur-2xl" />
                 
                 {/* Main Card */}
                 <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
@@ -223,7 +220,7 @@ export default function MethodologyAutoPlay() {
                           </p>
                         </div>
 
-                        {/* Stats Grid */}
+                        {/* Stats Grid - Colores actualizados */}
                         <div className="grid grid-cols-3 gap-4 pt-4">
                           {methodologyItems[activeItem].stats.map((stat) => (
                             <motion.div
@@ -231,9 +228,9 @@ export default function MethodologyAutoPlay() {
                               initial={{ opacity: 0, y: 10 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.2 }}
-                              className="text-center p-4 rounded-xl bg-gradient-to-br from-cyan-50 to-blue-50 border border-cyan-100"
+                              className="text-center p-4 rounded-xl bg-gradient-to-br from-green-50 to-blue-50 border border-green-100"
                             >
-                              <p className="text-2xl sm:text-3xl font-bold text-cyan-600 mb-1">
+                              <p className="text-2xl sm:text-3xl font-bold text-green-600 mb-1">
                                 {stat.value}
                               </p>
                               <p className="text-xs sm:text-sm text-slate-600 font-medium">
@@ -246,7 +243,7 @@ export default function MethodologyAutoPlay() {
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Progress Indicator with Auto-play Visual */}
+                  {/* Progress Indicator - Colores actualizados */}
                   <div className="flex items-center justify-center gap-3 border-t border-slate-100 bg-slate-50/50 px-8 py-5">
                     {methodologyItems.map((_, i) => (
                       <button
@@ -259,7 +256,7 @@ export default function MethodologyAutoPlay() {
                         <div className="relative">
                           <div className={`h-2 rounded-full transition-all duration-500 ${
                             i === activeItem 
-                              ? "w-12 bg-gradient-to-r from-cyan-600 to-blue-600" 
+                              ? "w-12 bg-gradient-to-r from-green-600 to-blue-600" 
                               : "w-2 bg-slate-400"
                           }`} />
                           {/* Auto-play progress bar */}
@@ -268,12 +265,12 @@ export default function MethodologyAutoPlay() {
                               initial={{ width: "0%" }}
                               animate={{ width: "100%" }}
                               transition={{ duration: 4, ease: "linear" }}
-                              className="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-400 opacity-50"
+                              className="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-green-400 to-blue-400 opacity-50"
                             />
                           )}
                         </div>
                         <span className={`text-xs font-medium transition-colors ${
-                          i === activeItem ? "text-cyan-700" : "text-slate-500"
+                          i === activeItem ? "text-green-700" : "text-slate-500"
                         }`}>
                           {i + 1}
                         </span>
@@ -282,9 +279,9 @@ export default function MethodologyAutoPlay() {
                   </div>
                 </div>
 
-                {/* Decorative Elements */}
-                <div className="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-500/5 to-blue-500/5 blur-2xl" />
-                <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-gradient-to-br from-blue-500/5 to-cyan-500/5 blur-2xl" />
+                {/* Decorative Elements - Colores actualizados */}
+                <div className="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-green-500/5 to-blue-500/5 blur-2xl" />
+                <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-gradient-to-br from-blue-500/5 to-green-500/5 blur-2xl" />
               </div>
             </motion.div>
           </div>
